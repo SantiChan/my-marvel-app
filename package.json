@@ -1,27 +1,37 @@
 {
-  "name": "my-test-1",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.1.6"
-  },
-  "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "eslint": "^9",
-    "eslint-config-next": "15.1.6",
-    "@eslint/eslintrc": "^3"
-  }
+	"name": "my-marvel-app",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"test": "jest"
+	},
+	"dependencies": {
+		"next": "15.1.6",
+		"prettier": "^3.5.0",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0"
+	},
+	"devDependencies": {
+		"@eslint/eslintrc": "^3",
+		"@testing-library/jest-dom": "^6.6.3",
+		"@testing-library/react": "^16.2.0",
+		"@types/jest": "^29.5.14",
+		"@types/node": "^20",
+		"@types/react": "^19",
+		"@types/react-dom": "^19",
+		"eslint": "^9",
+		"eslint-config-next": "15.1.6",
+		"jest": "^29.7.0",
+		"jest-environment-jsdom": "^29.7.0",
+		"jest-transform-stub": "^2.0.0",
+		"postcss": "^8",
+		"sass": "^1.84.0",
+		"tailwindcss": "^3.4.1",
+		"ts-jest": "^29.2.5",
+		"typescript": "^5"
+	}
 }

@@ -1,0 +1,95 @@
+.card {
+	width: 180px;
+	background-color: #fff;
+	border-radius: 4px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+.cardImageContainer {
+	width: 100%;
+	aspect-ratio: 5/6;
+	overflow: hidden;
+	position: relative;
+	background: #000;
+}
+
+.cardImage {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	display: block;
+	padding: 3px;
+}
+
+.redBar {
+	height: 4px;
+	background-color: #e62429;
+}
+
+.cardInfo {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 200px;
+	height: 60px;
+	overflow: hidden;
+	background-color: #000;
+	clip-path: polygon(0 00%, 10% 0, 100% 0, 100% 40%, 85% 100%, 0% 100%);
+	transition: background-color 0.3s ease;
+}
+
+.cardInfo:hover {
+	background-color: #e62429;
+}
+
+.cardInfo ::before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: -100%;
+	left: 0;
+	background-color: #e62429;
+	transition: top 0.3s ease;
+	z-index: -1;
+}
+
+.cardInfo:hover .name::before {
+	top: 0;
+}
+
+.name {
+	font-size: 14px;
+	color: #fff;
+	font-weight: lighter;
+	text-align: center;
+	overflow: hidden;
+	line-height: 16px;
+	letter-spacing: 0;
+	text-transform: uppercase;
+	margin-left: 10px;
+	text-decoration: none;
+}
+
+.heartIcon {
+	margin-right: 30px;
+	cursor: pointer;
+	.heartSvg {
+		width: 16px;
+		height: 16px;
+		color: #e62429;
+		cursor: pointer;
+	}
+}
+
+.cardInfo:hover .heartIcon img {
+	content: url("/images/Heart_icon_white.svg");
+}
+
+.heartIcon img[src*="Heart_icon_empty.svg"] {
+	pointer-events: none;
+}

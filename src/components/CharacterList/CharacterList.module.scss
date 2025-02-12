@@ -1,0 +1,23 @@
+.charactersGrid {
+	display: grid;
+	gap: 16px;
+	grid-template-columns: repeat(2, 1fr);
+	padding: 1rem;
+
+	@media (min-width: 640px) {
+		grid-template-columns: repeat(auto-fill, minmax(150px, 180px));
+	}
+}
+
+.card {
+	background-color: #f5f5f5;
+	border-radius: 8px;
+	padding: 16px;
+	text-align: center;
+}
+
+.contResults {
+	padding-left: 25px;
+	font-family: "Roboto Condensed", sans-serif;
+	font-weight: lighter;
+}

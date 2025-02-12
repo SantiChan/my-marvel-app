@@ -1,6 +1,16 @@
-import "@/styles/globals.css";
 import type { AppProps } from "next/app";
+import "../styles/globals.scss";
+import Layout from "../components/Layout/Layout";
+import { FavoritesProvider } from "@/context/FavoritesContext";
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+function MyApp({ Component, pageProps }: AppProps) {
+	return (
+		<FavoritesProvider>
+			<Layout>
+				<Component {...pageProps} />
+			</Layout>
+		</FavoritesProvider>
+	);
 }
+
+export default MyApp;
