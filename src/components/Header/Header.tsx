@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Header.module.scss";
 import Image from "next/image";
 import { useFavorites } from "@/context/FavoritesContext";
+import Link from "next/link";
 
 export const Header: React.FC = () => {
 	const { favorites, showFavorites, setShowFavorites } = useFavorites();
@@ -13,12 +14,14 @@ export const Header: React.FC = () => {
 	return (
 		<header className={styles.headerContainer}>
 			<div className={styles.logo}>
-				<Image
-					src="/images/Marvel_logo.svg"
-					alt="Logo"
-					width={140}
-					height={80}
-				/>
+				<Link href="/">
+					<Image
+						src="/images/Marvel_logo.svg"
+						alt="Logo"
+						width={140}
+						height={80}
+					/>
+				</Link>
 			</div>
 			<div
 				className={styles.heartContainer}

@@ -6,6 +6,7 @@
 	display: flex;
 	flex-direction: column;
 	position: relative;
+	transition: width 0.3s ease;
 }
 
 .cardImageContainer {
@@ -34,11 +35,11 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	width: 200px;
-	height: 60px;
+	width: 100%;
+	min-height: 60px;
 	overflow: hidden;
 	background-color: #000;
-	clip-path: polygon(0 00%, 10% 0, 100% 0, 100% 40%, 85% 100%, 0% 100%);
+	clip-path: polygon(0 0%, 10% 0, 100% 0, 100% 65%, 90% 100%, 0% 100%);
 	transition: background-color 0.3s ease;
 }
 
@@ -46,7 +47,7 @@
 	background-color: #e62429;
 }
 
-.cardInfo ::before {
+.cardInfo::before {
 	content: "";
 	position: absolute;
 	width: 100%;
@@ -75,15 +76,13 @@
 	text-decoration: none;
 }
 
+.link {
+	text-decoration: none;
+}
+
 .heartIcon {
 	margin-right: 30px;
 	cursor: pointer;
-	.heartSvg {
-		width: 16px;
-		height: 16px;
-		color: #e62429;
-		cursor: pointer;
-	}
 }
 
 .cardInfo:hover .heartIcon img {
@@ -92,4 +91,25 @@
 
 .heartIcon img[src*="Heart_icon_empty.svg"] {
 	pointer-events: none;
+}
+
+@media (max-width: 768px) {
+	.card {
+		width: 100%;
+	}
+
+	.cardInfo {
+		width: 100%;
+		min-height: 50px;
+	}
+}
+
+@media (max-width: 480px) {
+	.card {
+		width: 100%;
+	}
+
+	.cardInfo {
+		min-height: 50px;
+	}
 }
