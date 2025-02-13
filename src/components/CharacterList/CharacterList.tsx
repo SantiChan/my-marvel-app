@@ -49,6 +49,7 @@ const CharacterList: React.FC = () => {
 
 	return (
 		<div>
+			{showFavorites && <h2 className={styles.favTitle}>Favorites</h2>}
 			<SearchBar onSearchChange={handleSearchChange} />
 			<p className={styles.contResults}>
 				{filteredCharacters.length} Results
