@@ -5,33 +5,13 @@ import styles from "./CharacterDetail.module.scss";
 import Image from "next/image";
 import { Character } from "@/domain";
 import PlanetInfo from "@/components/PlanetInfo/PlanetInfo";
+import { useDetailCharacter } from "@/hooks/useDetailCharacter";
 
 const CharacterDetail = () => {
-	const [character, setCharacter] = useState<Character | null>(null);
 	const router = useRouter();
 	const { id } = router.query;
+	const { character, isLoading, error } = useDetailCharacter(id);
 	const { favorites, toggleFavorite } = useFavorites();
-
-	useEffect(() => {
-		if (!router.isReady) return;
-
-		if (id) {
-			const fetchCharacter = async () => {
-				try {
-					const response = await fetch(`/api/characters/${id}`);
-					if (!response.ok) {
-						throw new Error("Failed to fetch character");
-					}
-					const data = await response.json();
-					setCharacter(data);
-				} catch (error) {
-					console.error("Error fetching character:", error);
-				}
-			};
-
-			fetchCharacter();
-		}
-	}, [id, router.isReady]);
 
 	const handleToggleFavorite = useCallback(() => {
 		if (character) {
@@ -39,7 +19,12 @@ const CharacterDetail = () => {
 		}
 	}, [character, toggleFavorite]);
 
-	if (!character) return <div>Loading...</div>;
+	if (isLoading || !character) {
+		return <div>Loading...</div>;
+	}
+	if (error) {
+		return <div>Error loading characters.</div>;
+	}
 
 	const isFavorite = favorites.includes(character.id.toString());
 

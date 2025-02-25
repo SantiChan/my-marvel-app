@@ -1,7 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
+import { CharacterService } from "@/application";
 import { CharacterRepositoryImpl } from "@/infra/CharacterApiRepository";
 
-const repo = new CharacterRepositoryImpl();
+const characterService = new CharacterService(new CharacterRepositoryImpl());
 
 export default async function handler(
 	req: NextApiRequest,
@@ -9,7 +10,7 @@ export default async function handler(
 ) {
 	if (req.method === "GET") {
 		try {
-			const characters = await repo.getAll();
+			const characters = await characterService.getCharacters();
 			return res.status(200).json(characters);
 		} catch (error) {
 			console.error("Error fetching characters:", error);

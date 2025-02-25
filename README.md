@@ -8,6 +8,8 @@ This is a [Next.js]project bootstrapped with [`create-next-app`](https://nextjs.
 
 Marvel project to show and collect Characters of marvel ( in this case Dargon ball ).
 
+In this case, we’ve used the Dragon Ball API because the Marvel API isn’t working properly, but i kept the initial design (marvel-app) to maintain the Figma structure as much as possible. The detail character information is different in the detail view, where I replaced the comics slider with a block of information for each character.
+
 The project was developed using the React framework, `Next.js`, and the styles are based on `CSS modules` for each component with the Sass preprocessor.
 
 We developed a `hexagonal architecture` with layers to separate the business logic from the layers that interact with the data, maintaining consistency, cleanliness, order, and security in our code, making it easily scalable even for large-scale projects.
@@ -67,6 +69,10 @@ For `unit testing`, we use Jest to ensure the correct functionality of our appli
         - `src/test/pages` contains tests for Next.js pages (e.g., testing routes like `characters/[id].tsx`).
         - `src/test/api` contains tests for the API routes (`characters.ts`, `characters/[id].ts`).
 
+### SWR Implementation
+
+This application leverages `SWR` (stale-while-revalidate) for data fetching and caching. SWR provides a way to retrieve data by returning cached data immediately, while revalidating it in the background. This approach minimizes redundant API calls, ensures that the UI is responsive, and automatically keeps the data up-to-date. By using SWR in custom hooks (e.g., `useCharacters` and `useDetailCharacter`), the application separates data fetching logic from UI components, making the code more modular, maintainable, and scalable.
+
 ### Best practices
 
 This project uses `eslint`, `prettier` and `commitlint` to ensure good practices when programming and adding changes to the code.
@@ -98,9 +104,9 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Live URL: [https://my-marvel-app-one.vercel.app]
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+This is the currently deployed production version on Vercel.
 
 ```
 

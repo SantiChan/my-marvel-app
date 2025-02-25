@@ -39,11 +39,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
 			</Link>
 			<div className={styles.redBar}></div>
 			<div className={styles.cardInfo}>
-				<Link
-					className={styles.link}
-					href={`/characters/${id}`}
-					passHref
-				>
+				<Link href={`/characters/${id}`} passHref>
 					<span className={styles.name}>{name}</span>
 				</Link>
 				<div className={styles.heartIcon} onClick={handleFavoriteClick}>
